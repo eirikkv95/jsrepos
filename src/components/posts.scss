@@ -1,0 +1,53 @@
+.postContainer {
+  max-width: 1000px;
+  margin: 20px auto;
+  box-shadow: 2px 6px 60px #bfbfbf;
+  border-top-right-radius: 22px;
+  border-top-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  border-bottom-left-radius: 22px;
+
+  .overviewRepo {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    justify-items: center;
+    padding: 24px 0;
+    background: #586696;
+    color: #fff;
+
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+  }
+  .repositories {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    justify-items: center;
+    padding: 16px 0;
+    background: #fff;
+    color: #fff;
+    &:nth-child(even) {
+      background: #f2f5ff;
+    }
+    &:last-child {
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
+    }
+    h2 {
+      text-transform: capitalize;
+      font-size: 18px;
+      color: #000;
+    }
+    span {
+      color: #000;
+    }
+    a,
+    a:link,
+    a:visited {
+      color: #000;
+      font-size: 16px;
+      border-radius: 22px;
+      text-transform: capitalize;
+      text-decoration: none;
+    }
+  }
+}
