@@ -1,5 +1,6 @@
 import React from "react";
 import "./pagination.scss";
+
 export const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
 

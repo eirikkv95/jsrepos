@@ -11,7 +11,6 @@ export const Posts = ({ posts, loading }) => {
   return (
     <div className="postContainer">
       <div className="overviewRepo">
-        {/* repositories, Forked , watchers , Homepage  */}
         <p>Repositories</p>
         <p>Forked</p>
         <p>Watchers</p>
