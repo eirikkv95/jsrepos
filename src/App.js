@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Posts } from "./components/Posts";
 import { Pagination } from "./components/Pagination";
+import ErrorMessage from "./components/errorMessage";
+import { Loader } from ".//components/Loader";
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
+  const [error, setError] = useState("");
+  // const [postsPerPage] = useState(20);
+  const postsPerPage = 20;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +24,8 @@ function App() {
         setPosts(data.items);
         setLoading(false);
       } catch (err) {
-        console.log(err);
+        setLoading(false);
+        setError(err.message);
       }
     };
     fetchData();
@@ -31,18 +36,22 @@ function App() {
   const indexOfFirstPost = indexOflastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOflastPost);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const onPageClick = (pageNumber) => setCurrentPage(pageNumber);
 
-  return (
+  return !loading ? (
     <div className="App">
       <h1>Most popular js repositories</h1>
+
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
-        paginate={paginate}
+        onPageClick={onPageClick}
       />
       <Posts posts={currentPosts} loading={loading} />
+      {error && <ErrorMessage message={error} />}
     </div>
+  ) : (
+    <Loader />
   );
 }
 

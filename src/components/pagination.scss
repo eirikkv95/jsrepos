@@ -11,8 +11,8 @@ nav {
       &:not(:last-of-type) {
         margin-right: 5px;
       }
-      .page-link:link,
-      .page-link:visited {
+      .page-link,
+      .page-link {
         padding: 6px 22px;
         text-decoration: none;
         border: 1px solid black;
@@ -20,10 +20,12 @@ nav {
         color: #000;
         transition: all 0.4s ease-in-out;
         &:hover {
-          transform: translate(10px);
           color: #fff;
           background: #586696;
-          border: none;
+        }
+        &:focus {
+          background: #586696;
+          color: #fff;
         }
       }
     }

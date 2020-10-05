@@ -1,13 +1,8 @@
 import React from "react";
-import { Loader } from "./Loader";
 
 import "./posts.scss";
 
-export const Posts = ({ posts, loading }) => {
-  if (loading) {
-    return <Loader />;
-  }
-
+export const Posts = ({ posts }) => {
   return (
     <div className="postContainer">
       <div className="overviewRepo">
